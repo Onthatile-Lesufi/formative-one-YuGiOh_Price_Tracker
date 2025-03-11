@@ -9,10 +9,18 @@
 }
 
 #price-graph-holder {
-    width: 100;
+    width: 100%;
     height: 100vh;
     background-color: #2A0F0A;
     padding-top: 7.5vh;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#price-graph {
+    height: 70vh;
+    justify-content: space-around;
+    align-items: center;
 }
 
 #popularity-graph-holder {

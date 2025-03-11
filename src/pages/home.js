@@ -2,6 +2,9 @@ import { Col, Container, Row } from 'react-bootstrap';
 import './styling/home.css'
 import Searchbar from '../components/searchbar';
 import BaseCard from '../components/basecard';
+import React from 'react';
+import { Chart as ChartJS } from 'chart.js/auto';
+import { Bar } from 'react-chartjs-2';
 
 function home () {
     return (
@@ -20,6 +23,14 @@ function home () {
                     </Col>
                     <Col sm="9">
                         <h2 id='graph-title'>Price By Store</h2>
+                        <Bar 
+                            data={{
+                                labels: ["TcgPlayer","eBay","Amazon","CoolStuffInc"],
+                                datasets: [{
+                                    data: [2.69,4.95,6.18,3.99],
+
+                                }]
+                        }}/>
                     </Col>
                 </Row>
             </Container>
