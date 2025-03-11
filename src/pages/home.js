@@ -11,8 +11,15 @@ function home () {
                 <Row>
                     <Col sm="3">
                         <BaseCard/>
+                        <div id='card-info-container'>
+                            <p>Card Type</p>
+                            <p>Average Price:</p>
+                            <p>Set Releases:</p>
+                            <p>Release Dates:<br/>TCG:<br/>OCG:</p>
+                        </div>
                     </Col>
                     <Col sm="9">
+                        <h2 id='graph-title'>Price By Store</h2>
                     </Col>
                 </Row>
             </Container>
