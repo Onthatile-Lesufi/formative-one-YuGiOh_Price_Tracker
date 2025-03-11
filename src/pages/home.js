@@ -9,10 +9,10 @@ function home () {
             <Searchbar/>
             <Container>
                 <Row>
-                    <Col>
+                    <Col sm="3">
                         <BaseCard/>
                     </Col>
-                    <Col>
+                    <Col sm="9">
                     </Col>
                 </Row>
             </Container>

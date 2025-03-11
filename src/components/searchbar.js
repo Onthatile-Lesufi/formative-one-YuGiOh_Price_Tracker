@@ -3,14 +3,16 @@ import './styling/searchbar.css'
 
 function Searchbar () {
     return (
-        <InputGroup className="mb-3">
-            <InputGroup.Text id="input-icon">🔎︎</InputGroup.Text>
-            <Form.Control
-              placeholder="Card Name"
-              aria-label="Card Name"
-              aria-describedby="form-text"
-            />
-        </InputGroup>
+        <div className='searchbar'>
+            <InputGroup className="mb-3" >
+                <Form.Control
+                  placeholder="Card Name..."
+                  aria-label="Card Name..."
+                  id="form-text"
+                />
+            </InputGroup>
+        </div>
+        
     )
 }
 

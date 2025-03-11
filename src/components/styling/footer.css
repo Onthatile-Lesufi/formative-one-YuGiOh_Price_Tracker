@@ -1,9 +1,10 @@
 .footer {
     width: 100%;
-    height: 7.5vh;
+    height: 10vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
     color: antiquewhite;
     background-color: #502017;
+    font-family: 'Inter', sans-serif;
 }

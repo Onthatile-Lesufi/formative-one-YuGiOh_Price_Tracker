@@ -1,9 +1,21 @@
-#input-icon {
-    border: none;
-    background-color: none;
+.searchbar {
+    margin-bottom: 4.5vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mb-3 {
+    width: 75%;
 }
 
 #form-text {
+    height: 6vh;
+    padding-left: 1.5vw;
     border: none;
-    background-color: none;
+    background-color: #D9D9D9;
+    color: #828282;
+    border-radius: 500px;
+    font-family: 'Inter', sans-serif;
+    font-size: 2.25vh;
 }

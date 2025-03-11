@@ -1,0 +1,10 @@
+.column-container {
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card-info-text {
+    height: auto;
+    width: auto;
+    color: white;
+}

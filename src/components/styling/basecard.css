@@ -1,0 +1,26 @@
+/* Yu-Gi-Oh! Card Ratio: 1.45:1 */
+
+.card-holder {
+    justify-content: center;
+    align-items: center;
+}
+
+.card-image-holder {
+    margin-bottom: 3vh;
+}
+
+.card-image {
+    width: 15vw;
+    height: 43vh;
+    background-color: white;
+    margin: auto 0;
+}
+
+.card-name-holder {
+    width: 100%;
+}
+
+.card-name-text {
+    color: antiquewhite;
+    font-family: 'Noto Serif', serif;
+}
