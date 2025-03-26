@@ -14,7 +14,7 @@ const ComparisonColumn = ({dataPassFunction}) => {
             const response = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${cardName}&misc=yes`);
             setData(response.data.data[0]);
         } catch (error) {
-            console.error(error);
+            console.error("Error fetching card data:", error);
         }
     }
     
@@ -26,7 +26,7 @@ const ComparisonColumn = ({dataPassFunction}) => {
             const _tempData = response.data.data[_random];
             setData(_tempData);
         } catch (error) {
-            console.error(error);
+            console.error("Error fetching card data:", error);
         }
     }
 

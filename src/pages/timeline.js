@@ -17,7 +17,7 @@ function Timeline () {
             const response = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${cardName}&misc=yes`);
             setData(response.data.data[0]);
         } catch (error) {
-            console.error(error);
+            console.error("Error fetching card data:", error);
         }
     }
 
@@ -29,7 +29,7 @@ function Timeline () {
             const _tempData = response.data.data[_random];
             setData(_tempData);
         } catch (error) {
-            console.error(error);
+            console.error("Error fetching card data:", error);
         }
     }
 
@@ -78,19 +78,18 @@ function Timeline () {
          
         try {
             const response = await axios.get('https://db.ygoprodeck.com/api/v7/cardsets.php');
-            console.log(response);
+            
             for (const tempSet of data.card_sets.reverse()) {
                 _tempTimeline.push(response.data.find((setEntry) => setEntry.set_name === tempSet.set_name));
             }
-            // console.log(_tempTimeline);
+            
             _tempTimeline.sort((a, b) => {
-                console.log(new Date(a.tcg_date).valueOf());
                 return new Date(a.tcg_date).valueOf() - new Date(b.tcg_date).valueOf();
             });
-            // console.log(_tempTimeline);
+            
             setTimelineData(_tempTimeline);
         } catch (error) {
-            console.error(error);
+            console.error("Error fetching card data:", error);
         }
         
     }
@@ -119,7 +118,7 @@ function Timeline () {
             var _timelineLabels = timelineData.map(index => new Date(index.tcg_date).getFullYear() || 1970);
             var _timeEntries = timelineData.map(index => parseFloat(index.set_price) || 0);
             var _timePointLabels = timelineData.map(index => index.set_name);
-            console.log(_timePointLabels);
+            
             setChartData ({
                 labels: _timelineLabels,
                 datasets: [

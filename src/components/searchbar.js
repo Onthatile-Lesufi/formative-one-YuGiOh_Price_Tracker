@@ -32,12 +32,9 @@ const Searchbar = ({dataPassFunction}) => {
                     setActiveCard(selected);
                     var _selectedData = selected;
                     var _passThroughData = _selectedData[0];
-                    console.log(_passThroughData);
                     if (_passThroughData === undefined) return;
                     if (_passThroughData.includes("&")) {
-                        console.log(_passThroughData.includes("&"));
                         _passThroughData = _passThroughData.replaceAll('&' , "%26");
-                        console.log(_passThroughData);
                     }
                 
                     dataPassFunction (_passThroughData);

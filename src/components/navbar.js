@@ -28,7 +28,6 @@ function navbar () {
                         to={_heading.value}
                         className="navbar-link"
                         style={({ isActive }) => ({
-                            // color: isActive ? "white" : "antiquewhite",
                             fontWeight: isActive ?'800' : 'normal'
                         })}
                     >
