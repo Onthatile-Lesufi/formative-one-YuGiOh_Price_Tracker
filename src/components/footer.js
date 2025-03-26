@@ -4,7 +4,7 @@ function footer () {
     return (
         <div className='footer'>
             <p>
-                &copy; Copyright: Yu-Gi-Oh! Price Checker
+                &copy; Copyright: Yu-Gi-Oh!&trade; Price Checker
             </p>
         </div>
     )

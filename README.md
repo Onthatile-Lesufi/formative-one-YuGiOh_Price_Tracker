@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+<!-- ![Logo](/src/assets/images/Logo.svg) -->
+# Yu-Gi-Oh!&trade; Price Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Table of content
 
-In the project directory, you can run:
+- [About](#about-site)
+    - [Page Breakdown](#page-breakdown)
+- [Built With](#built-with)
+- [Contributing](#contributing)
+- [Authors](#authors)
+- [Acknowledgements](#acknowledgements)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## About Site
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Yu-Gi-Oh!&trade; Price Tracker allows users to browse various Yu-Gi-Oh!&trade; cards, analyse their various market factors and compare them to other cards. Market factors include: 
+- Prices across varies digital stores
+- Average pricing
+- Popularity metrics on https://ygoprodeck.com:
+    - Total views
+    - Recent views
+    - Upvotes
+    - Downotes
 
-### `npm test`
+- Number of reprintings in the form of set releases
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Page Breakdown
 
-### `npm run build`
+#### Overview Page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Acts as the website's landing page and provides users with a quick overview of a card's price across stores, average price, set release count and its release status in the TCG (Trading Card Game) and OCG (Official Card Game) regions of Yu-Gi-Oh!&trade; distribution.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Overview Page](/src/assets/screenshots/Home%20Page.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Comparison Page
 
-### `npm run eject`
+Provides many of the same features and metrics as the overview page while also allowing users to compare these stats between two cards.One other additional feature present on this page is the ability to view popularity metrics between the aforementioned two cards.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Comparison Page](/src/assets/screenshots/Comparison%20Page.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Timeline Page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Provides users with the ability to view the history of a card through its printings and reprinting within the Yu-Gi-Oh!&trade; TCG regions.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Home Page](/src/assets/screenshots/Timeline%20Page.png)
 
-## Learn More
+## Getting Started
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Installing
 
-### Code Splitting
+1. Clone the repo
+```sh
+git clone https://github.com/Onthatile-Lesufi/formative-one-YuGiOh_Price_Tracker.git
+```
+2. Open the project 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. Execute `npm install` in your IDE's terminal
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Running
 
-### Making a Progressive Web App
+Execute `npm start` in your IDE's terminal
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Built With
 
-### Advanced Configuration
+* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [React](https://react.dev)
+* [React Bootstrap](https://react-bootstrap.netlify.app)
+* [Chart.js](https://www.chartjs.org)
+* [Yu-Gi-Oh!&trade; API by YGOprodeck](https://ygoprodeck.com/api-guide/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contributing
 
-### Deployment
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-### `npm run build` fails to minify
+## Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* **Onathatile Lesufi** - [OnthatileLesufi](https://github.com/Onthatile-Lesufi)
+
+See also the list of [contributors](https://github.com/Onthatile-Lesufi/DV100_T3_Final/graphs/contributors) who participated in this project.
+
+## Acknowledgements
+
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc
