@@ -13,6 +13,7 @@ function Timeline () {
     const [ timelineData , setTimelineData ] = useState(null);
 
     async function fetchCard(cardName) {
+        //Get card data from api using a specific card's name
         try {
             const response = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${cardName}&misc=yes`);
             setData(response.data.data[0]);
@@ -23,6 +24,7 @@ function Timeline () {
 
     async function fetchRandomCard() {
         try {
+            //Get all cards from api then get a random card from the array
             const response = await axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?misc=yes');
             const _count = response.data.data.length;
             const _random = Math.floor(Math.random() * _count);
@@ -38,6 +40,7 @@ function Timeline () {
         const _cardFormats = _miscInfo.formats;
         var _tempTimeline = [];
 
+        //Test whether searched card was released in the Trading Card Game and/or Official Card Game regions and order the timeline array accordingly
         if (_cardFormats.includes("TCG") && _cardFormats.includes("OCG")) {
             if (_miscInfo.ocg_date < _miscInfo.tcg_date) {
                 _tempTimeline.push({
@@ -76,6 +79,7 @@ function Timeline () {
             });
         }
          
+        //After release information is placed on the array compare the names of sets the card was released in to an array containing the information of every card set that has been released
         try {
             const response = await axios.get('https://db.ygoprodeck.com/api/v7/cardsets.php');
             
@@ -87,6 +91,7 @@ function Timeline () {
                 return new Date(a.tcg_date).valueOf() - new Date(b.tcg_date).valueOf();
             });
             
+            //After comparison and array construction the timeline's data is set
             setTimelineData(_tempTimeline);
         } catch (error) {
             console.error("Error fetching card data:", error);
@@ -95,11 +100,13 @@ function Timeline () {
     }
 
     useEffect(() => {
+        //On page load fetch a random card from api
         fetchRandomCard();
     }, [])
 
     useEffect(() => {
         if (data) {
+            //Set average price if card data has been updated
             const prices = [
                 parseFloat(data.card_prices[0].tcgplayer_price || 0),
                 parseFloat(data.card_prices[0].ebay_price || 0),
@@ -109,12 +116,14 @@ function Timeline () {
             const total = prices.reduce((sum, price) => sum + price, 0);
             setAvgPrice((total / prices.length).toFixed(2));
 
+            //Fetch timeline information after calculating the card's average price
             fetchCardSetInfo();
         }
     }, [data]); 
 
     useEffect (() => {
         if (timelineData) {
+            //Once the timeline is retrieved, it is then separated and formatted to be used by the ChartJs graph
             var _timelineLabels = timelineData.map(index => new Date(index.tcg_date).getFullYear() || 1970);
             var _timeEntries = timelineData.map(index => parseFloat(index.set_price) || 0);
             var _timePointLabels = timelineData.map(index => index.set_name);
@@ -136,6 +145,7 @@ function Timeline () {
     return (
         <div className="timeline">
             <Searchbar dataPassFunction={fetchCard}/>
+            {/* Ternary operator that displays a card if the data is obtained. Otherwise loading text is displayed */}
             {data ? (<>
                 <BaseCard cardImage={data.card_images[0]?.image_url} cardName = {data.name}/>
                 <div id="timeline-card-info-container">
@@ -145,6 +155,7 @@ function Timeline () {
             </>) : 
             (<h2 style={{color: 'white'}}>Loading Card...</h2>)}
             
+            {/* Ternary operator that displays the timeline if the data is obtained. Otherwise loading text is displayed */}
             <div id="timeline-container">
                 <h2 id="graph-title">{data ? data.name : "Card"}'s Timeline</h2>
                 <div className="timeline-graph">

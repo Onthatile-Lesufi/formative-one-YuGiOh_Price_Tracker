@@ -8,10 +8,14 @@ import Button from 'react-bootstrap/Button';
 import { data } from 'react-router-dom';
 
 function Comparison () {
+    //States for current cards
     const [popularData,setPopularData] = useState(null);
     const [cardOne,setCardOne] = useState({});
     const [cardTwo,setCardTwo] = useState({});
     const [popularityMetric,setPopularityMetric] = useState(null);
+    
+    //Basic information for each button corresponding to a popularity metric
+    //Creates more readable html code as array can be mapped to button components using JSX
     const eventKeys = [{
         value: "total",
         display: "Total",
@@ -30,42 +34,50 @@ function Comparison () {
         eventHandler: FetchDownvotes
     }]
 
-    function handleCardOne (cardOneData) {
-        setCardOne(cardOneData);
-    }
+    //Higher order functions to used to retrieve data from comparison column components to populate card pages
+    //#region - Card Set Functions
+        function handleCardOne (cardOneData) {
+            setCardOne(cardOneData);
+        }
 
-    function handleCardTwo (cardTwoData) {
-        setCardTwo(cardTwoData);
-    }
+        function handleCardTwo (cardTwoData) {
+            setCardTwo(cardTwoData);
+        }
+    //#endregion
+    
+    //Functions to change the popularData state and update information
+    //#region - Popularity Metric Change Functions
+        function FetchTotalViews () {
+            if (cardOne.cardName && cardTwo.cardName) {
+                setPopularData([cardOne.cardPopularity.totalViews,cardTwo.cardPopularity.totalViews]);
+                setPopularityMetric("Total Views");
+            }   
+        }
 
-    function FetchTotalViews () {
-        if (cardOne.cardName && cardTwo.cardName) {
-            setPopularData([cardOne.cardPopularity.totalViews,cardTwo.cardPopularity.totalViews]);
-            setPopularityMetric("Total Views");
-        }   
-    }
+        function FetchWeekViews () {
+            if (cardOne.cardName && cardTwo.cardName) {
+                setPopularData([cardOne.cardPopularity.weekViews,cardTwo.cardPopularity.weekViews]);
+                setPopularityMetric("Recent Views");
+            }   
+        }
+
+        function FetchUpvotes () {
+            if (cardOne.cardName && cardTwo.cardName) {
+                setPopularData([cardOne.cardPopularity.upvotes,cardTwo.cardPopularity.upvotes]);
+                setPopularityMetric("Upvotes");
+            }  
+        }
+        function FetchDownvotes () {
+            if (cardOne.cardName && cardTwo.cardName) {
+                setPopularData([cardOne.cardPopularity.downvotes,cardTwo.cardPopularity.downvotes]);
+                setPopularityMetric("Downvotes");
+            }  
+        }
+    //#endregion
     
-    function FetchWeekViews () {
-        if (cardOne.cardName && cardTwo.cardName) {
-            setPopularData([cardOne.cardPopularity.weekViews,cardTwo.cardPopularity.weekViews]);
-            setPopularityMetric("Recent Views");
-        }   
-    }
-    
-    function FetchUpvotes () {
-        if (cardOne.cardName && cardTwo.cardName) {
-            setPopularData([cardOne.cardPopularity.upvotes,cardTwo.cardPopularity.upvotes]);
-            setPopularityMetric("Upvotes");
-        }  
-    }
-    function FetchDownvotes () {
-        if (cardOne.cardName && cardTwo.cardName) {
-            setPopularData([cardOne.cardPopularity.downvotes,cardTwo.cardPopularity.downvotes]);
-            setPopularityMetric("Downvotes");
-        }  
-    }
 
     useEffect (() => {
+        //Display total view comparison when a card's information has been updated
         FetchTotalViews();
     },[cardOne, cardTwo]);
 

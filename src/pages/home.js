@@ -33,9 +33,10 @@ const Home = () => {
         }
     }
 
-    useEffect(() => {
+    useEffect(() => { 
+        // Fetch card data on component mount
         fetchRandomCard();
-    }, []); // Fetch card data on component mount
+    }, []);
 
     useEffect(() => {
         if (data) {

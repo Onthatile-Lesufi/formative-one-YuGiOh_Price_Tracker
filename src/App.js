@@ -10,6 +10,7 @@ import Timeline from './pages/timeline';
 
 function App() {
   return (
+    //Basic router link with navbar and footer for single page website
     <Router>
       <div className="App">
         <Navbar />

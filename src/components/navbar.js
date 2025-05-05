@@ -28,7 +28,7 @@ function navbar () {
                         to={_heading.value}
                         className="navbar-link"
                         style={({ isActive }) => ({
-                            fontWeight: isActive ?'800' : 'normal'
+                            fontWeight: isActive ? '800' : 'normal'
                         })}
                     >
                         {_heading.label}

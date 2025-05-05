@@ -10,6 +10,7 @@ const ComparisonColumn = ({dataPassFunction}) => {
     const [ avgPrice , setAvgPrice ] = useState(0);
 
     async function fetchCard(cardName) {
+        //Get card data from api using a specific card's name
         try {
             const response = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${cardName}&misc=yes`);
             setData(response.data.data[0]);
@@ -20,6 +21,7 @@ const ComparisonColumn = ({dataPassFunction}) => {
     
     async function fetchRandomCard() {
         try {
+            //Get all cards from api then get a random card from the array
             const response = await axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?misc=yes');
             const _count = response.data.data.length;
             const _random = Math.floor(Math.random() * _count);
@@ -31,11 +33,13 @@ const ComparisonColumn = ({dataPassFunction}) => {
     }
 
     useEffect(() => {
+        //On page load, fetch a random card from the api
         fetchRandomCard();
     }, [])
 
     useEffect(() => {
         if (data && data.name) {
+            //Calculate average price once card data is received
             const prices = [
                 parseFloat(data.card_prices[0].tcgplayer_price || 0),
                 parseFloat(data.card_prices[0].ebay_price || 0),
@@ -45,6 +49,7 @@ const ComparisonColumn = ({dataPassFunction}) => {
             const total = prices.reduce((sum, price) => sum + price, 0);
             setAvgPrice((total / prices.length).toFixed(2));
 
+            //Gather information into a single to object that can be passed back to the main comparison page
             const passThroughData = {
                 cardName: data.name,
                 cardPrices: prices,
@@ -64,6 +69,7 @@ const ComparisonColumn = ({dataPassFunction}) => {
     }, [data]); 
 
     return (
+        // Individual reusable column for the comparison page
         <Col className="column-container">
             <Searchbar dataPassFunction={fetchCard}/>
             {data ? (<>

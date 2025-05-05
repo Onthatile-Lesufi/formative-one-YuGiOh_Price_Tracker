@@ -6,6 +6,7 @@ const BaseCard = ({cardName, cardImage}) => {
     let tempCardName = cardName;
 
     return (
+        //Basic card to output a card's image and name
         <div className='card-holder'>
             <div className='card-image-holder'>
                 <img className='card-image' src={cardImage} alt='card'/>
